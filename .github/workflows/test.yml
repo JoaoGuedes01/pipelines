@@ -2,8 +2,8 @@ name: Hello World Action
 
 on:
   schedule:
-    # This will run at minute 55 past every hour (UTC)
-    - cron:  '25 18 * * *'
+    # This will run 18:25 every day
+    - cron:  '0 19 * * *'
 
 jobs:
   build:
