@@ -1,0 +1,13 @@
+name: Hello World Action
+
+on:
+  schedule:
+    # This will run at minute 55 past every hour (UTC)
+    - cron:  '13 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Hello World
+      run: echo Hello, world!
