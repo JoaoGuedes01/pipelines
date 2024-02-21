@@ -43,5 +43,4 @@ jobs:
             - name: Running CLI
               run: |
                 echo "Running CLI"
-                echo "param1: ${{github.event.inputs.param1}}"
-                echo "param1: ${{github.event.inputs.param2}}"
+                guedesmoney run ${{ github.event.inputs.param1 && '--param1' || '' }} ${{ github.event.inputs.param2 && '--param2' || '' }}
