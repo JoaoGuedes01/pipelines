@@ -1,45 +1,28 @@
 name: Run Guedesmoney CLI
 
 on:
-  workflow_dispatch:
-    inputs:
-      headless:
-        description: 'Headless'
-        required: true
-        default: true
-        type: boolean
-      save_results:
-        description: 'Save Results'
-        required: true
-        default: true
-        type: boolean
-      flags:
-        description: 'flags for cli'
-        type: choice
-        options:
-            - option1
-            - option2
-            - option2
+    workflow_dispatch:
+        inputs:
+            param1:
+                    description: "Parameter 1"
+                    required: true
+                    default: true
+                    type: boolean
+            param2:
+                description: "Parameter 2"
+                required: true
+                default: true
+                type: boolean
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Run Guedesmoney CLI
-      run: |
-        echo guedesmoney run \
-          ${${{ github.event.inputs.headless }} == 'true' && '--headless'} \
-          ${${{ github.event.inputs.save_results }} == 'true' && '--save_results'} \
-          ${${{ github.event.inputs.screenshot }} == 'true' && '--screenshot'} \
-          ${${{ github.event.inputs.check_fiscal }} == 'true' && '--check-fiscal'} \
-          ${${{ github.event.inputs.check_alerts }} == 'true' && '--check-alerts'} \
-          ${${{ github.event.inputs.check_messages }} == 'true' && '--check-messages'} \
-          ${${{ github.event.inputs.check_interactions }} == 'true' && '--check-interactions'} \
-          ${${{ github.event.inputs.check_payments }} == 'true' && '--check-payments'} \
-          ${${{ github.event.inputs.current }} == 'true' && '--current'} \
-          ${${{ github.event.inputs.missing }} == 'true' && '--missing'} \
-          ${${{ github.event.inputs.refund }} == 'true' && '--refund'}
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+            
+            - name: Running CLI
+              run: |
+                echo "Running CLI"
+                echo "param1: ${{github.event.inputs.param1}}"
+                echo "param1: ${{github.event.inputs.param2}}"
