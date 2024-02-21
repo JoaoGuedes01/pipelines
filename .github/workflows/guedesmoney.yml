@@ -35,10 +35,10 @@ jobs:
               run: "guedesmoney version"
             
             - name: Configure GuedesMoney
-              run: "guedesmoney config -un ${{secrets.GUEDESMOENY_USER_NIF}} -up 321 -et gmail -se sender@sender.com -sp sender_pass -rl rec@rec.com"
+              run: "guedesmoney config -un ${{secrets.GUEDESMOENY_USER_NIF}} -up ${{secrets.GUEDESMOENY_USER_PASSWORD}} -et ${{secrets.GUEDESMOENY_EMAIL_PROVIDER}} -se ${{secrets.GUEDESMOENY_EMAIL_SENDER}} -sp ${{secrets.GUEDESMOENY_SENDER_PASSKEY}} -rl ${{secrets.GUEDESMOENY_RECEPIENT_LIST}}"
 
             - name: Check GuedesMoney Configuration
-              run: "guedesmoney config -c -shp"
+              run: "guedesmoney config -c"
             
             - name: Running CLI
               run: |
