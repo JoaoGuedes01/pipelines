@@ -5,48 +5,59 @@ on:
     inputs:
       headless:
         description: 'Headless'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       save_results:
         description: 'Save Results'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       screenshot:
         description: 'Screenshot'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       check_fiscal:
         description: 'Check Fiscal'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       check_alerts:
         description: 'Check Alerts'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       check_messages:
         description: 'Check Messages'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       check_interactions:
         description: 'Check Interactions'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       check_payments:
         description: 'Check Payments'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       current:
         description: 'Current'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       missing:
         description: 'Missing'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
       refund:
         description: 'Refund'
-        required: false
-        default: 'false'
+        required: true
+        default: true
+        type: boolean
 
 jobs:
   build:
