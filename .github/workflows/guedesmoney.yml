@@ -3,13 +3,48 @@ name: Run Guedesmoney CLI
 on:
     workflow_dispatch:
         inputs:
-            param1:
-                    description: "Parameter 1"
+            check_fiscal:
+                    description: "Check Fiscal Situation"
                     required: true
                     default: true
                     type: boolean
-            param2:
-                description: "Parameter 2"
+            check_alerts:
+                description: "Check Alerts"
+                required: true
+                default: true
+                type: boolean
+            check_messages:
+                description: "Check Messages"
+                required: true
+                default: true
+                type: boolean
+            check_interactions:
+                description: "Check Interactions"
+                required: true
+                default: true
+                type: boolean
+            check_payments:
+                description: "Check Payments"
+                required: true
+                default: true
+                type: boolean
+            current_payments:
+                description: "Check Current Payments"
+                required: true
+                default: true
+                type: boolean
+            missing_payments:
+                description: "Check Missing Payments"
+                required: true
+                default: true
+                type: boolean
+            refund_payments:
+                description: "Check Refund Payments"
+                required: true
+                default: true
+                type: boolean
+            send_email:
+                description: "Send Email"
                 required: true
                 default: true
                 type: boolean
@@ -43,4 +78,4 @@ jobs:
             - name: Running CLI
               run: |
                 echo "Running CLI"
-                guedesmoney run ${{ github.event.inputs.param1 == 'true' && '--param1' || '' }} ${{ github.event.inputs.param2 == 'true' && '--param2' || '' }}
+                guedesmoney run --headless --save_results --screenshot ${{ github.event.inputs.check_fiscal == 'true' && '--check-fiscal' || '' }} ${{ github.event.inputs.check_alerts == 'true' && '--check-alerts' || '' }} ${{ github.event.inputs.check_messages == 'true' && '--check-messages' || '' }} ${{ github.event.inputs.check_interactions == 'true' && '--check-interactions' || '' }} ${{ github.event.inputs.check_payments == 'true' && '--check-payments' || '' }} ${{ github.event.inputs.current_payments == 'true' && '--current' || '' }} ${{ github.event.inputs.missing_payments == 'true' && '--missing' || '' }} ${{ github.event.inputs.refund_payments == 'true' && '--refund' || '' }} ${{ github.event.inputs.send_email == 'true' && '--send-email' || '' }}
