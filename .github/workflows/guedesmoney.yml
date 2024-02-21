@@ -53,7 +53,8 @@ on:
                 required: true
                 default: true
                 type: boolean
-
+    schedule:
+      - cron: '57 16 * * *'
 jobs:
     build:
         runs-on: ubuntu-latest
