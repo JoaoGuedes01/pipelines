@@ -54,7 +54,7 @@ on:
                 default: true
                 type: boolean
     schedule:
-      - cron: "45 17 * * *"
+      - cron: "36 17 * * *"
 jobs:
     build:
         runs-on: ubuntu-latest
