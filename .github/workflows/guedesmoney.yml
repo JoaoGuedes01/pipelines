@@ -38,7 +38,7 @@ jobs:
               run: "guedesmoney config -un 123 -up 321 -et gmail -se sender@sender.com -sp sender_pass -rl rec@rec.com"
 
             - name: Check GuedesMoney Configuration
-              run: "guedesmoney config -c -sp"
+              run: "guedesmoney config -c -shp"
             
             - name: Running CLI
               run: |
