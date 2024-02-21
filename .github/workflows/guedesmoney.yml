@@ -13,51 +13,13 @@ on:
         required: true
         default: true
         type: boolean
-      screenshot:
-        description: 'Screenshot'
-        required: true
-        default: true
-        type: boolean
-      check_fiscal:
-        description: 'Check Fiscal'
-        required: true
-        default: true
-        type: boolean
-      check_alerts:
-        description: 'Check Alerts'
-        required: true
-        default: true
-        type: boolean
-      check_messages:
-        description: 'Check Messages'
-        required: true
-        default: true
-        type: boolean
-      check_interactions:
-        description: 'Check Interactions'
-        required: true
-        default: true
-        type: boolean
-      check_payments:
-        description: 'Check Payments'
-        required: true
-        default: true
-        type: boolean
-      current:
-        description: 'Current'
-        required: true
-        default: true
-        type: boolean
-      missing:
-        description: 'Missing'
-        required: true
-        default: true
-        type: boolean
-      refund:
-        description: 'Refund'
-        required: true
-        default: true
-        type: boolean
+      flags:
+        description: 'flags for cli'
+        type: choice
+        options:
+            - option1
+            - option2
+            - option2
 
 jobs:
   build:
@@ -69,7 +31,7 @@ jobs:
 
     - name: Run Guedesmoney CLI
       run: |
-        guedesmoney run \
+        echo guedesmoney run \
           ${${{ github.event.inputs.headless }} == 'true' && '--headless'} \
           ${${{ github.event.inputs.save_results }} == 'true' && '--save_results'} \
           ${${{ github.event.inputs.screenshot }} == 'true' && '--screenshot'} \
