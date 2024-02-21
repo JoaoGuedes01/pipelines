@@ -1,0 +1,72 @@
+name: Run Guedesmoney CLI
+
+on:
+  workflow_dispatch:
+    inputs:
+      headless:
+        description: 'Headless'
+        required: false
+        default: 'false'
+      save_results:
+        description: 'Save Results'
+        required: false
+        default: 'false'
+      screenshot:
+        description: 'Screenshot'
+        required: false
+        default: 'false'
+      check_fiscal:
+        description: 'Check Fiscal'
+        required: false
+        default: 'false'
+      check_alerts:
+        description: 'Check Alerts'
+        required: false
+        default: 'false'
+      check_messages:
+        description: 'Check Messages'
+        required: false
+        default: 'false'
+      check_interactions:
+        description: 'Check Interactions'
+        required: false
+        default: 'false'
+      check_payments:
+        description: 'Check Payments'
+        required: false
+        default: 'false'
+      current:
+        description: 'Current'
+        required: false
+        default: 'false'
+      missing:
+        description: 'Missing'
+        required: false
+        default: 'false'
+      refund:
+        description: 'Refund'
+        required: false
+        default: 'false'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Guedesmoney CLI
+      run: |
+        guedesmoney run \
+          ${${{ github.event.inputs.headless }} == 'true' && '--headless'} \
+          ${${{ github.event.inputs.save_results }} == 'true' && '--save_results'} \
+          ${${{ github.event.inputs.screenshot }} == 'true' && '--screenshot'} \
+          ${${{ github.event.inputs.check_fiscal }} == 'true' && '--check-fiscal'} \
+          ${${{ github.event.inputs.check_alerts }} == 'true' && '--check-alerts'} \
+          ${${{ github.event.inputs.check_messages }} == 'true' && '--check-messages'} \
+          ${${{ github.event.inputs.check_interactions }} == 'true' && '--check-interactions'} \
+          ${${{ github.event.inputs.check_payments }} == 'true' && '--check-payments'} \
+          ${${{ github.event.inputs.current }} == 'true' && '--current'} \
+          ${${{ github.event.inputs.missing }} == 'true' && '--missing'} \
+          ${${{ github.event.inputs.refund }} == 'true' && '--refund'}
