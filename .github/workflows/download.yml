@@ -1,4 +1,4 @@
-name: Run Guedesmoney CLI
+name: Install packages
 
 on:
     workflow_dispatch:
