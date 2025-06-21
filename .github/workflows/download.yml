@@ -17,6 +17,7 @@ jobs:
         node-version: '20'
         cache: 'npm'
 
+    # Installing mock package as an example
     - name: Install dependencies
       run: npm i guedes-crypt
               
